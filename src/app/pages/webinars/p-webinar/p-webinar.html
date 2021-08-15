@@ -1,0 +1,40 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-12 mb-3">
+            <app-back-btn link="/webinars" title="Вебинары"></app-back-btn>
+        </div>
+    </div>
+    <div class="row" *ngIf="item">
+        <div class="col-12">
+            <h1>{{item.title}}</h1>
+        </div>
+        <div class="col-12" [innerHTML]="item.text"></div>
+        <div class="col-12">
+            <h3>Дата проведения: {{item.date | date : 'longDate' : '+0000'}}</h3>
+            <button mat-raised-button color="primary"
+                    [disabled]="!canRegistration(item.date)"
+                    (click)="openRegistrationForm(item.title)">
+                {{canRegistration(item.date) ? 'ЗАПИСАТЬСЯ СЕЙЧАС' : 'ВЕБИНАР ЗАВЕРШЕН'}}
+            </button>
+        </div>
+    </div>
+    <div class="row mt-3" *ngIf="speakers?.length > 0">
+        <div class="col-lg-4" *ngFor="let speaker of speakers">
+            <mat-card class="h-100">
+                <img [src]="url + speaker.image"
+                     [alt]="speaker.title"
+                     appLazyLoad
+                     mat-card-image
+                     *ngIf="speaker.image">
+                <mat-card-header>
+                    <mat-card-title>{{speaker.title}}</mat-card-title>
+                    <mat-card-subtitle>Ведущий вебинара</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content [innerHTML]="speaker.description"></mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>

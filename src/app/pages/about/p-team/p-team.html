@@ -1,0 +1,84 @@
+<app-under-header image="assets/img/pexels-marc-mueller-380768.jpg" text="Наша команда"></app-under-header>
+<div class="container black-link">
+    <div class="row mb-5">
+                <div class="col-lg-4 mb-4 mt-5" *ngFor="let item of data.teamData">
+<!--                     [ngClass]="(item.city !== 'Нур-Султан') ? 'd-none' : null">-->
+<!--                    <ng-container *ngIf="item.city === 'Нур-Султан'">-->
+                        <mat-card class="h-100">
+                            <mat-card-header>
+                                <mat-card-title>{{item.title}}</mat-card-title>
+                                <mat-card-subtitle>
+                                    {{item.description}} <br>
+                                    <span *ngIf="item.city">г. {{item?.city}}</span>
+                                </mat-card-subtitle>
+                            </mat-card-header>
+                            <mat-card-content class="px-3">
+                                <a href="tel:{{item.number}}" *ngIf="item.number">
+                                    <mat-icon inline="true">phone</mat-icon>
+                                    {{item.number}}</a>
+                                <br>
+                                <a href="mailto:{{item.mail}}" *ngIf="item.mail">
+                                    <mat-icon inline="true">email</mat-icon>
+                                    {{item.mail}}</a>
+                            </mat-card-content>
+                        </mat-card>
+<!--                    </ng-container>-->
+        </div>
+<!--        <div class="col-lg-4 mt-5 mb-1">-->
+<!--            <div class="row flex-column">-->
+<!--                <div class="col-12 mb-4" *ngFor="let item of data.teamData"-->
+<!--                     [ngClass]="(item.city !== 'Алматы') ? 'd-none' : null">-->
+<!--                    <ng-container *ngIf="item.city === 'Алматы'">-->
+<!--                        <mat-card class="h-100">-->
+<!--                            <mat-card-header>-->
+<!--                                <mat-card-title>{{item.title}}</mat-card-title>-->
+<!--                                <mat-card-subtitle>-->
+<!--                                    {{item.description}} <br>-->
+<!--                                    <span *ngIf="item.city">г. {{item?.city}}</span>-->
+<!--                                </mat-card-subtitle>-->
+<!--                            </mat-card-header>-->
+<!--                            <mat-card-content class="px-3">-->
+<!--                                <a href="tel:{{item.number}}" *ngIf="item.number">-->
+<!--                                    <mat-icon inline="true">phone</mat-icon>-->
+<!--                                    {{item.number}}</a>-->
+<!--                                <br>-->
+<!--                                <a href="mailto:{{item.mail}}" *ngIf="item.mail">-->
+<!--                                    <mat-icon inline="true">email</mat-icon>-->
+<!--                                    {{item.mail}}</a>-->
+<!--                            </mat-card-content>-->
+<!--                        </mat-card>-->
+<!--                    </ng-container>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="col-lg-4 mt-5 mb-1">-->
+<!--            <div class="row flex-column">-->
+<!--                <div class="col-12 mb-4" *ngFor="let item of data.teamData"-->
+<!--                     [ngClass]="(item.city === 'Алматы' || item.city === 'Нур-Султан') ? 'd-none' : null">-->
+<!--                    <ng-container *ngIf="item.city !== 'Алматы' && item.city !== 'Нур-Султан'">-->
+<!--                        <mat-card class="h-100">-->
+<!--                            <mat-card-header>-->
+<!--                                <mat-card-title>{{item.title}}</mat-card-title>-->
+<!--                                <mat-card-subtitle>-->
+<!--                                    {{item.description}} <br>-->
+<!--                                    <span *ngIf="item.city">г. {{item?.city}}</span>-->
+<!--                                </mat-card-subtitle>-->
+<!--                            </mat-card-header>-->
+<!--                            <mat-card-content class="px-3">-->
+<!--                                <a href="tel:{{item.number}}" *ngIf="item.number">-->
+<!--                                    <mat-icon inline="true">phone</mat-icon>-->
+<!--                                    {{item.number}}</a>-->
+<!--                                <br>-->
+<!--                                <a href="mailto:{{item.mail}}" *ngIf="item.mail">-->
+<!--                                    <mat-icon inline="true">email</mat-icon>-->
+<!--                                    {{item.mail}}</a>-->
+<!--                            </mat-card-content>-->
+<!--                        </mat-card>-->
+<!--                    </ng-container>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>

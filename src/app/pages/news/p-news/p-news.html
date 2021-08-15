@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-page-header title="Новости компании"></app-page-header>
+        </div>
+        <div class="col-lg-4 mb-5" *ngFor="let item of data.newsData">
+            <app-card-preview [item]="item"></app-card-preview>
+        </div>
+    </div>
+</div>
+<app-load-informer [show]="data.newsLoading"></app-load-informer>
+<div class="container mb-5" *ngIf="!data.newsFinished && !data.newsLoading">
+    <div class="row mt-3">
+        <div class="col-12 text-center">
+            <button mat-button (click)="showMore()">Показать ещё</button>
+        </div>
+    </div>
+</div>
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>

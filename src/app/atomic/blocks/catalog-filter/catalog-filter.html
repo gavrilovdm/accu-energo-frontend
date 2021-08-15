@@ -1,0 +1,97 @@
+<div class="row" [formGroup]="form">
+    <div class="col-12 col-md-3">
+        Категория
+        <mat-radio-group class="my-radio-group" formControlName="productType" (change)="showFilteredBrands()">
+            <mat-radio-button class="my-radio-button" value="accumulators">Аккумуляторы</mat-radio-button>
+            <mat-radio-button class="my-radio-button" value="ups">ИБП</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <ng-container *ngIf="form.controls.productType.value === 'accumulators'">
+        <div class="col-12 col-md-3">
+            Тип
+            <mat-radio-group class="my-radio-group" formControlName="accumulatorType" (change)="showFilteredBrands()">
+                <mat-radio-button class="my-radio-button" value="stationary">Стационарные</mat-radio-button>
+                <mat-radio-button class="my-radio-button" value="draft">Тяговые</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="col-12 col-md-3">
+            Технология
+            <mat-radio-group class="my-radio-group" formControlName="accumulatorTechnology" (change)="showFilteredBrands()">
+                <mat-radio-button class="my-radio-button" value="AGM">AGM</mat-radio-button>
+                <mat-radio-button class="my-radio-button" value="gel">Гель</mat-radio-button>
+                <mat-radio-button class="my-radio-button" value="electrolyte">Жидкий электролит</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <ng-container>
+            <div class="col-12 col-md-3">
+                Напряжение
+                <mat-select formControlName="accumulatorVoltage" [(value)]="selectedVoltage" (selectionChange)="showFilteredBrands()">
+                    <mat-option value="two">2</mat-option>
+                    <mat-option value="four">4</mat-option>
+                    <mat-option value="six">6</mat-option>
+                    <mat-option value="eight">8</mat-option>
+                    <mat-option value="twelve">12</mat-option>
+                    <mat-option value="unique1">14</mat-option>
+                    <mat-option value="unique2">40</mat-option>
+                    <mat-option value="unique3">44</mat-option>
+                    <mat-option value="unique4">48</mat-option>
+                    <mat-option value="unique5">80</mat-option>
+                </mat-select>
+            </div>
+            <div class="col-12 col-md-3">
+                Емкость, Ач
+                <mat-form-field appearance="legacy">
+                    <mat-label>От</mat-label>
+                    <input matInput autocomplete="off" formControlName="capacityMin">
+                    <mat-error>Введите число</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>До</mat-label>
+                    <input matInput autocomplete="off" formControlName="capacityMax">
+                    <mat-error>Введите число</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-12 col-md-3">
+                Срок службы
+                <mat-form-field appearance="legacy">
+                    <mat-label>От</mat-label>
+                    <input matInput autocomplete="off" formControlName="lifeTimeMin">
+                    <mat-error>Введите число</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>До</mat-label>
+                    <input matInput autocomplete="off" formControlName="lifeTimeMax">
+                    <mat-error>Введите число</mat-error>
+                </mat-form-field>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="form.controls.accumulatorType.value === 'draft'">
+            <div class="col-12 col-md-3">
+                Количество циклов
+                <mat-form-field appearance="legacy">
+                    <mat-label>От</mat-label>
+                    <input matInput autocomplete="off" formControlName="numberOfCyclesMin">
+                    <mat-error>Введите число</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="legacy">
+                    <mat-label>До</mat-label>
+                    <input matInput autocomplete="off" formControlName="numberOfCyclesMax">
+                    <mat-error>Введите число</mat-error>
+                </mat-form-field>
+            </div>
+        </ng-container>
+    </ng-container>
+    <div class="col-12">
+        <button class="mr-3 mb-3" mat-stroked-button
+                *ngFor="let brand of filteredBrands"
+                (click)="toggleBrandSelection(brand.title)"
+                [color]="isBrandSelected(brand.title)">
+            {{brand.title}}
+        </button>
+    </div>
+
+    <div class="col-12">
+        <button mat-button color="primary" (click)="show(); clickToFilter()">Применить фильтр</button>
+        <button mat-button color="warn" (click)="form.reset(); clear()">Очистить фильтр</button>
+    </div>
+</div>

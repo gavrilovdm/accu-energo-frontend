@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Торговые марки
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        ТОО «Акку-Энерго» является официальным дистрибьютером следующих брендов:
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-lg-2 col-6 d-flex justify-content-center align-items-center"
+                             *ngFor="let item of items | async">
+                            <ng-container *ngIf="item.isshowhome === '1'">
+                                <a (click)="showBrand(item)">
+                                    <img [src]="url + item.img" [alt]="item.title" appLazyLoad
+                                         style="max-width: 90px"/>
+                                </a>
+                            </ng-container>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,154 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-page-header title="Документация"></app-page-header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 mb-5">
+            <mat-accordion *ngIf="!icCategory">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Стационарные аккумуляторы</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        <mat-nav-list>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/stacionarnye-akkumulyatory-catalogs">
+                                Каталоги
+                            </mat-list-item>
+                            <mat-list-item routerLink="/docs/stacionarnye-akkumulyatory-catalogs-gnb">GNB Industrial
+                                Power
+                            </mat-list-item>
+                            <mat-list-item routerLink="/docs/stacionarnye-akkumulyatory-catalogs-bb-battery-ventura">
+                                B.B. Battery, Ventura
+                            </mat-list-item>
+                        </mat-nav-list>
+                        <hr>
+                        <mat-nav-list>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/stacionarnye-akkumulyatory-catalogs">Инструкции по
+                                эксплуатации
+                            </mat-list-item>
+                            <mat-list-item routerLink="/docs/stacionarnye-akkumulyatory-instructions-gnb">GNB Industrial
+                                Power
+                            </mat-list-item>
+                            <mat-list-item
+                                    routerLink="/docs/stacionarnye-akkumulyatory-instructions-bb-battery-ventura">
+                                B.B. Battery, Ventura
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </ng-template>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Аккумуляторы для техники на электротяге
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        <mat-nav-list>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/akkumulyatory-dlya-tehniki-na-elektrotyage-catalogs">
+                                Каталоги
+                            </mat-list-item>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/akkumulyatory-dlya-tehniki-na-elektrotyage-instructions">
+                                Инструкции по эксплуатации
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </ng-template>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Li-ion источники тока
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        <mat-nav-list>
+                            <mat-list-item class="mat-body-strong" routerLink="/docs/li-ion-istochniki-toka-catalogs">
+                                Каталоги
+                            </mat-list-item>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/li-ion-istochniki-toka-instructions">
+                                Инструкции по эксплуатации
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </ng-template>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Источники бесперебойного питания
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        <mat-nav-list>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/istochniki-besperebojnogo-pitaniya-prospects">Проспекты
+                            </mat-list-item>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/istochniki-besperebojnogo-pitaniya-instructions">Инструкции
+                                по эксплуатации
+                            </mat-list-item>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/istochniki-besperebojnogo-pitaniya-tehnicheskoe-opisanie">
+                                Технические описания
+                            </mat-list-item>
+                            <mat-list-item class="mat-body-strong"
+                                           routerLink="/docs/istochniki-besperebojnogo-pitaniya-certificates">
+                                Сертификаты
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </ng-template>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Сертификаты</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        <mat-nav-list>
+                            <mat-list-item class="mat-body-strong" routerLink="/docs/certificates">
+                                Сертификаты
+                            </mat-list-item>
+                        </mat-nav-list>
+                    </ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
+
+            <div class="mb-3" *ngIf="icCategory">
+                <app-back-btn title="Назад" link="/docs"></app-back-btn>
+            </div>
+
+            <div class="row" *ngIf="icCategory">
+                <div class="col-lg-4 col-sm-6 mb-5" *ngFor="let item of items">
+                    <mat-card class="h-100">
+                        <img class="img-fluid mb-3" [src]="url + item.image" [alt]="item.title" [title]="item.title"
+                             appLazyLoad>
+                        <mat-card-header>
+                            <mat-card-title>{{item.title}}</mat-card-title>
+                            <mat-card-subtitle>{{item.text}}</mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-actions>
+                            <a mat-button [href]="url + item.fileLink"
+                               target="_self"
+                               download
+                               (click)="clickToDocument()">
+                                <mat-icon inline="true">download</mat-icon>
+                                Скачать
+                            </a>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>

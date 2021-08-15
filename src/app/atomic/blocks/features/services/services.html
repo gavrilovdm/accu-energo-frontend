@@ -1,0 +1,37 @@
+<div class="mt-5 text-white bg-blue child-icon-72 py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center mat-display-3">Мы оказываем услуги</div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center">
+          <img class="mb-3" src="assets/icons/prototype.png">
+          <h2>Проектирование</h2>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center">
+          <img class="mb-3" src="assets/icons/hammer.png">
+          <h2>Монтаж</h2>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center">
+          <img class="mb-3" src="assets/icons/wrench.png">
+          <h2>Пусконаладка</h2>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="text-center">
+          <img class="mb-3" src="assets/icons/accumulator.png">
+          <h2>Шеф-монтаж</h2>
+        </div>
+      </div>
+      <div class="col-12 text-center mt-4" *ngIf="currentUrl === '/'">
+        <button mat-button routerLink="/services">
+          ПОДРОБНЕЕ ОБ УСЛУГАХ
+          <mat-icon inline>navigate_next</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

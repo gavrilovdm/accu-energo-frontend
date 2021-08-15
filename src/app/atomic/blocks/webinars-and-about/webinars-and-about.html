@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6" *ngIf="data.webinarsData.length > 0">
+      <app-section-header title="Бесплатные вебинары"></app-section-header>
+      <p>Регистрируйтесь и участвуйте в вебинарах от «Акку-Энерго»</p>
+      <mat-list>
+        <mat-list-item *ngFor="let item of data.webinarsData">
+          <mat-icon mat-list-icon>query_builder</mat-icon>
+          <a class="text-dark font-weight-bold" [routerLink]="'/webinars/' + item.url" mat-line>
+            <span class="text-wrap">{{item.title}}</span>
+          </a>
+          <div mat-line>{{item.date | date:'longDate': '+0000': 'RU'}}</div>
+        </mat-list-item>
+      </mat-list>
+      <button class="mt-3" mat-button routerLink="/webinars">
+        ВСЕ ВЕБИНАРЫ
+        <mat-icon inline>navigate_next</mat-icon>
+      </button>
+    </div>
+    <div class="col-lg-6">
+      <app-section-header title="«Акку-Энерго» – 17 лет на рынке"></app-section-header>
+      <p>ТОО «Акку-Энерго» имеет опыт в реализации крупных проектов «под ключ» в области
+        электроэнергетики, нефтегазовой отрасли, области телекоммуникаций и осуществляет поставку и пусконаладку
+        оборудования систем оперативного постоянного тока включая аккумуляторные батареи и весь спектр
+        преобразовательного и электрощитового оборудования.</p>
+      <button class="mt-3" mat-button routerLink="/about-us">
+        ПОДРОБНЕЕ
+        <mat-icon inline>navigate_next</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

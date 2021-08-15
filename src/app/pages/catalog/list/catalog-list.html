@@ -1,0 +1,129 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <app-page-header title="Каталог товаров"></app-page-header>
+            <p>Являемся официальным представителем и эксклюзивным дистрибьютором концерна Exide-Technologies, на
+                территории Республики Казахстан и представляем европейских и азиатских производителей стационарных
+                свинцово-кислотных аккумуляторных батарей и поставляем их под брендами EXIDE, B.B. Battery, Ventura,
+                Tudor и др.</p>
+        </div>
+        <div class="col-12 mb-3" *ngIf="data.selectedBrands.length > 0">
+            <mat-accordion>
+                <mat-expansion-panel class="mb-2" hideToggle
+                                     *ngFor="let brand of data.selectedBrands; let first = first"
+                                     [expanded]="data.selectedBrands.length === 1">
+                    <mat-expansion-panel-header class="specific-class d-flex justify-content-between">
+                        <mat-panel-title>{{brand}}</mat-panel-title>
+                        <mat-panel-description>
+                            <br>
+                            <mat-icon style="color: #3949ab">description</mat-icon>
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <ng-template matExpansionPanelContent>
+                        <app-brand-info [brandTitle]="brand"></app-brand-info>
+                    </ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
+<app-product-categories *ngIf="!isFilterSet()"></app-product-categories>
+<div class="container" *ngIf="isFilterSet()">
+    <div class="row">
+        <div class="col-12 mb-5">
+            <mat-accordion>
+                <mat-expansion-panel expanded="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Фильтр</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-catalog-filter [formInitialValue]="data.filtersFromUrl"
+                                        [selectedBrands]="data.selectedBrands"></app-catalog-filter>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        <div class="col-12 mb-3">
+            <button mat-stroked-button (click)="toggleShowSizes()"
+                    [color]="isMoreDataInTheTable === false ? null : 'primary'">
+                {{!isMoreDataInTheTable ? 'Показать дополнительную информацию' : 'Скрыть дополнительную информацию'}}
+            </button>
+        </div>
+        <div class="col-12">
+            <mat-progress-bar mode="buffer" *ngIf="data.productDownloading"></mat-progress-bar>
+            <ng-container *ngIf="items">
+                <div class="table-wrapper w-100 mat-elevation-z1">
+                    <table class="w-100" mat-table [dataSource]="dataSource" matSort>
+
+                        <ng-container matColumnDef="title" sticky>
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Тип</th>
+                            <td mat-cell *matCellDef="let p" class="nowrap">
+                                <a [href]="url + p.pdf"
+                                   target="_blank"
+                                   (click)="clickToDocument()">
+                                    {{p.title}}
+                                    <mat-icon inline>open_in_new</mat-icon>
+                                </a>
+                            </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="brand">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Бренд</th>
+                            <td mat-cell *matCellDef="let p"> {{p.brand}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="capacity">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Емкость, Ач</th>
+                            <td mat-cell *matCellDef="let p"> {{p.capacity | number}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="voltage">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Напряжение, В</th>
+                            <td mat-cell *matCellDef="let p"> {{p.voltage}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="power">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Мощность на блок 15 мин до 1,6 В/эл,
+                                Вт
+                            </th>
+                            <td mat-cell *matCellDef="let p"> {{p.power | number}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="length">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Длина, мм</th>
+                            <td mat-cell *matCellDef="let p"> {{p.length | number}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Вес, кг</th>
+                            <td mat-cell *matCellDef="let p"> {{p.weight | number}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="width">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Ширина, мм</th>
+                            <td mat-cell *matCellDef="let p"> {{p.width | number}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="height">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Высота, мм</th>
+                            <td mat-cell *matCellDef="let p"> {{p.height | number}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="output_type">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Тип вывода</th>
+                            <td mat-cell *matCellDef="let p"> {{p.output_type}} </td>
+                        </ng-container>
+
+                        <tr class="mat-row" *matNoDataRow>
+                            <td class="mat-cell" colspan="9999">
+                                Нет данных для отображения. Выберите значения в фильтре выше.
+                            </td>
+                        </tr>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+                    </table>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

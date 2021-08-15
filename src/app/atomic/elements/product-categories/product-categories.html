@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 mb-3" *ngFor="let item of items">
+      <div class="productCategoryImg mat-elevation-z2"
+           [style.backgroundImage]="'url(' + item.img + ')'"
+           [routerLink]="'/catalog'"
+           [queryParams]="item.url"
+           app-elevation>
+        <div class="product-category-text filter filter-mobile font-weight-bold h4 py-2 mx-3 px-2">
+            {{item.title}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

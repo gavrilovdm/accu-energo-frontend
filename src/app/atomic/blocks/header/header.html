@@ -1,0 +1,61 @@
+<mat-toolbar class="d-block h-auto">
+    <div class="container">
+        <div class="row d-flex align-items-center py-3 py-lg-1">
+            <div class="col-6 col-lg-2 py-lg-3">
+                <a class="d-flex justify-content-center align-items-center" routerLink="/">
+                    <img src="../../../../assets/img/logo-inline.svg" class="img-fluid logo" alt="АККУ-ЭНЕРГО">
+                </a>
+            </div>
+            <div class="col-6 d-flex align-items-center justify-content-end" *ngIf="isMobile">
+                <button mat-icon-button (click)="clickMenuBtn()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div class="col-md-10" *ngIf="!isMobile">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between top-menu">
+                        <a mat-button routerLink="/"
+                           routerLinkActive="selected"
+                           [routerLinkActiveOptions]="{exact: true}">Главная</a>
+                        <button mat-button [matMenuTriggerFor]="menu">
+                            О нас
+                            <mat-icon>arrow_drop_down</mat-icon>
+                        </button>
+                        <a mat-button routerLink="/catalog" routerLinkActive="selected">Продукция</a>
+                        <a mat-button routerLink="/services" routerLinkActive="selected">Услуги</a>
+                        <a mat-button routerLink="/news" routerLinkActive="selected">Новости</a>
+                        <a mat-button routerLink="/docs" routerLinkActive="selected">Документация</a>
+                        <a mat-button routerLink="/webinars" routerLinkActive="selected">Вебинары</a>
+                        <a mat-button routerLink="/contacts" routerLinkActive="selected">Контакты</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-end align-items-center mat-small">
+                        <mat-icon class="city-icon" inline="true">place</mat-icon>&nbsp;
+                        Нур-Султан&nbsp; &nbsp;
+                        <mat-icon class="city-icon" inline="true">phone</mat-icon>&nbsp;
+                        <a class="top-menu-phones"
+                           href="tel:+77172725157"
+                           (click)="clickToPhone()">8 (7172) 725-157
+                        </a>&nbsp; &nbsp;
+                        |&nbsp;&nbsp;&nbsp;
+
+                        <mat-icon class="city-icon" inline="true">place</mat-icon>&nbsp;
+                        Алматы&nbsp; &nbsp;
+                        <mat-icon class="city-icon" inline="true">phone</mat-icon>&nbsp;
+                        <a class="top-menu-phones"
+                           href="tel:+77273118005"
+                           (click)="clickToPhone()">8 (727) 311-80-05
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/about-us">О компании</button>
+    <button mat-menu-item routerLink="/team">Наша команда</button>
+    <button mat-menu-item routerLink="/partners">Наши партнеры</button>
+</mat-menu>

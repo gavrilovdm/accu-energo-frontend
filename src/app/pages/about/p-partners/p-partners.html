@@ -1,0 +1,25 @@
+<app-under-header image="assets/img/img_1.jpg" text="Наши партнеры"></app-under-header>
+
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-lg-4 mt-5 mb-1" *ngFor="let item of data.partnersData">
+      <mat-card class="h-100">
+        <mat-card-header>
+          <mat-card-title>{{item.title}}</mat-card-title>
+          <mat-card-subtitle>{{item.link}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="px-3 mt-2">
+          <img [src]="url + item.img" class="mx-auto d-block partner-card-img">
+          <p class="mt-4">{{item.description}}</p>
+        </mat-card-content>
+        <mat-card-actions class="px-2 d-flex align-items-end">
+          <a [href]="'https://' + item.link" target="_blank">
+            <button mat-button>ПЕРЕЙТИ НА САЙТ</button>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>

@@ -1,0 +1,24 @@
+<div class="container">
+    <owl-carousel-o [options]="customOptions" #owlCar>
+        <ng-container *ngFor="let item of items">
+            <ng-template carouselSlide>
+                <div class="slide-item"
+                     [style.backgroundImage]="'url(' + item.img + ')'">
+                    <div class="pt-5 px-5" style="min-height: 420px">
+                        <div class="filter-slider font-weight-bold h1 pb-2 px-3 text-white">
+                            <a class="slider-text-link" [routerLink]="'/catalog'"
+                               [queryParams]="item.url">
+                            </a>
+                            {{item.title}}
+                        </div>
+                        <div class="button-slider">
+                            <button mat-raised-button [routerLink]="'/catalog'" [queryParams]="item.url">
+                                ПЕРЕЙТИ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+    </owl-carousel-o>
+</div>

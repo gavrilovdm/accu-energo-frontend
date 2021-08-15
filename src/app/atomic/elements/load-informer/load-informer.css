@@ -1,0 +1,64 @@
+.spinner {
+  animation-duration: 1568.235294ms;
+  animation-iteration-count: infinite;
+  animation-name: rotate;
+  animation-timing-function: linear;
+  display: inline-block;
+  font-size: 19px;
+  height: 20px;
+  width: 20px;
+  z-index: 1;
+}
+
+.spinner svg * {
+  transform-origin: 10px 10px;
+}
+
+.spinner .path {
+  animation-duration: 1333ms, 5332ms, 400ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite, infinite, 1;
+  animation-name: fillunfillsmall, rot, shrink;
+  animation-play-state: running, running, paused;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1), steps(4), cubic-bezier(0.4, 0, 0.2, 1);
+  stroke: #2e4274;
+  stroke-dasharray: 41.23336875;
+  stroke-dashoffset: 41.23336875;
+  transition: stroke .218s linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fillunfillsmall {
+  0% {
+    stroke-dashoffset: 41.13;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -40.73;
+  }
+}
+
+@keyframes rot {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes shrink {
+  to {
+    stroke-width: 0;
+  }
+}

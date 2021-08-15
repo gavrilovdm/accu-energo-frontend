@@ -1,0 +1,16 @@
+<section class="container">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-between align-items-center mb-3">
+      <app-section-header title="Последние новости"></app-section-header>
+      <button mat-button routerLink="/news">
+        ВСЕ НОВОСТИ
+        <mat-icon inline>navigate_next</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4" *ngFor="let item of items$ | async">
+      <app-card-preview [item]="item"></app-card-preview>
+    </div>
+  </div>
+</section>

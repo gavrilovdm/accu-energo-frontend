@@ -1,0 +1,26 @@
+<app-load-informer [show]="data.newsLoading"></app-load-informer>
+<div class="container mt-5 mb-5">
+    <button mat-button class="mb-3" routerLink="/news">
+        <mat-icon inline="true">arrow_back</mat-icon>
+        Назад
+    </button>
+    <div class="row">
+        <div class="col-lg-12">
+            <div *ngIf="item">
+                <h1 class="mb-5">{{item.title}}</h1>
+                <div class="mb-3">
+                    <div [innerHTML]="item.text" style="font-size: 16px"></div>
+                </div>
+                <div class="row d-flex justify-content-center align-items-center" *ngIf="item?.images">
+                    <div class="col-lg-4" *ngFor="let img of item.images; index as imageIndex">
+
+                    </div>
+                </div>
+                <h3 class="mt-4">{{item.date | date : 'longDate' : '+0000'}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>

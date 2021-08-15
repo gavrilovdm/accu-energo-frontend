@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Host: https://accu-energo.kz
+Sitemap: https://accu-energo.kz/sitemap.xml

@@ -1,0 +1,104 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+a, a:active, a:hover {
+    text-decoration: none;
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    /*background-color: #f7f6f7;*/
+    background-color: #fafafa;
+    color: #313131;
+    padding-top: 90px;
+}
+
+.selected {
+    color: #9e9e9e!important;
+}
+
+.white-link a {
+    color: white;
+}
+
+.black-link a {
+    color: black!important;
+}
+
+.advantage-item-icon {
+    width: 80px;
+    height: 80px;
+}
+
+.slide-item {
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 480px;
+    background-position: center;
+    background-size: cover;
+}
+
+.bg-blue {
+    background-color: #2658A5;
+}
+
+.child-icon-72 img {
+    width: 72px;
+    height: 72px;
+}
+
+.productCategoryImg {
+    min-height: 200px;
+    background-size: cover;
+    position: center;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 400ms ease-in-out;
+}
+
+.filter {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: absolute;
+    bottom: 7%;
+}
+
+.filter-slider {
+    position: absolute;
+    bottom: 14%;
+    text-shadow: 3px 3px 5px #000000;
+}
+
+.button-slider {
+    position: absolute;
+    bottom: 6%;
+    left: 6%;
+}
+
+@media only screen and (max-width: 600px) {
+    .filter-slider {
+        font-size: 26px;
+        line-height: 0.9em;
+        position: absolute;
+        right: -1px;
+        left: -1px;
+    }
+
+    .product-category-text {
+        font-size: 14px;
+    }
+}

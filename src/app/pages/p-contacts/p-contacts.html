@@ -1,0 +1,140 @@
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-12">
+            <app-page-header title="Контакты"></app-page-header>
+        </div>
+        <div class="col-lg-12">
+            <mat-tab-group mat-stretch-tabs dynamicHeight>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon inline="true">place</mat-icon>
+                        Нур-Султан
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <mat-list>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">place</mat-icon>
+                                        <div class="font-weight-bold" matLine>Офис в городе Нур-Султан</div>
+                                        <p matLine>ул. Бейбитшилик 14,<br> БЦ "Marden" 8 этаж, оф.805, 806.</p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">phone</mat-icon>
+                                        <div class="font-weight-bold" matLine>Тендерный отдел, отдел маркетинга</div>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77172725156"
+                                                      (click)="clickToPhone()">
+                                            8 (7172) 725-156</a></p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">phone</mat-icon>
+                                        <div class="font-weight-bold" matLine>Отдел продаж</div>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77172725157"
+                                                      (click)="clickToPhone()">
+                                            8 (7172) 725-157</a></p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">phone</mat-icon>
+                                        <div class="font-weight-bold" matLine>Бухгалтерия:</div>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77717340960"
+                                                      (click)="clickToPhone()">
+                                            8 (771) 734-09-60</a>
+                                        </p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">email</mat-icon>
+                                        <div class="font-weight-bold" matLine>Электронная почта</div>
+                                        <p matLine><a class="text-dark" href="mailto:astana@accu-energo.kz">astana@accu-energo.kz</a>
+                                        </p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon>build</mat-icon>
+                                        <div class="font-weight-bold" matLine>Служба сервиса</div>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77017429712"
+                                                      (click)="clickToPhone()">
+                                            8 (701)
+                                            742-97-12</a>
+                                        </p>
+                                        <p matLine><a class="text-dark" href="mailto:service@accu-energo.kz">service@accu-energo.kz</a>
+                                        </p>
+                                    </mat-list-item>
+                                </mat-list>
+                            </div>
+                            <div class="col-lg-6 map">
+                                <ya-map [center]="[51.170463, 71.420790]" [zoom]="16">
+                                    <ya-placemark [geometry]="[51.170463, 71.420790]"></ya-placemark>
+                                </ya-map>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon inline="true">place</mat-icon>
+                        Алматы
+                    </ng-template>
+                    <ng-template matTabContent>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <mat-list>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">place</mat-icon>
+                                        <div class="font-weight-bold" matLine>Офис в городе Алматы</div>
+                                        <p class="text-wrap" matLine>мкр. Мирас 157, блок 3, офис 1Е</p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">phone</mat-icon>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77273118005"
+                                                      (click)="clickToPhone()">
+                                            8 (727) 311-80-05</a>
+                                        </p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">phone</mat-icon>
+                                        <div class="font-weight-bold" matLine>Отдел продаж</div>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77717542025"
+                                                      (click)="clickToPhone()">
+                                            8 (771) 754-20-25</a>
+                                        </p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon inline="true">email</mat-icon>
+                                        <div class="font-weight-bold" matLine>Электронная почта</div>
+                                        <p matLine><a class="text-dark" href="mailto:info@accu-energo.kz">info@accu-energo.kz</a>
+                                        </p>
+                                    </mat-list-item>
+                                    <mat-list-item>
+                                        <mat-icon matListIcon>build</mat-icon>
+                                        <div class="font-weight-bold" matLine>Служба сервиса</div>
+                                        <p matLine><a class="text-dark"
+                                                      href="tel:+77017429712"
+                                                      (click)="clickToPhone()">
+                                            8 (701)
+                                            742-97-12</a>
+                                        </p>
+                                        <p matLine><a class="text-dark" href="mailto:service@accu-energo.kz">service@accu-energo.kz</a>
+                                        </p>
+                                    </mat-list-item>
+                                </mat-list>
+                            </div>
+                            <div class="col-lg-6 map">
+                                <ya-map [center]="[43.189597, 76.868142]" [zoom]="16">
+                                    <ya-placemark [geometry]="[43.189597, 76.868142]"></ya-placemark>
+                                </ya-map>
+                            </div>
+                        </div>
+                    </ng-template>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
+
+<app-advantages></app-advantages>
+<app-offer-bottom></app-offer-bottom>
